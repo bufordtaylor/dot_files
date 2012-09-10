@@ -1,0 +1,68 @@
+# Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+# Enable the 2D Dock
+defaults write com.apple.dock no-glass -bool true
+
+# Disable menu bar transparency
+defaults write -g AppleEnableMenuBarTransparency -bool false
+
+# Expand save panel by default
+defaults write -g NSNavPanelExpandedStateForSaveMode -bool true
+
+# Expand print panel by default
+defaults write -g PMPrintingExpandedStateForPrint -bool true
+
+# Disable shadow in screenshots
+defaults write com.apple.screencapture disable-shadow -bool true
+
+# Disable auto-correct
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+# Disable window animations
+defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+
+# Disable Safari’s thumbnail cache for History and Top Sites
+defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
+
+# Enable Safari’s debug menu
+defaults write com.apple.Safari IncludeDebugMenu -bool true
+
+# Remove useless icons from Safari’s bookmarks bar
+defaults write com.apple.Safari ProxiesInBookmarksBar "()"
+
+# Disable send and reply animations in Mail.app
+defaults write com.apple.Mail DisableReplyAnimations -bool true
+defaults write com.apple.Mail DisableSendAnimations -bool true
+
+# Disable Resume system-wide
+defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
+
+defaults write NSGlobalDomain KeyRepeat -int 0
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
+
+# Enable Dashboard dev mode (allows keeping widgets on the desktop)
+defaults write com.apple.dashboard devmode -bool true
+
+# Reset Launchpad
+rm ~/Library/Application\ Support/Dock/*.db
+
+# Show the ~/Library folder
+chflags nohidden ~/Library
+
+# Disable local Time Machine backups
+sudo tmutil disablelocal
+
+# Kill affected applications
+for app in Safari Finder Dock Mail; do killall "$app"; done
+
+# change location of screen shots from homescreen
+defaults write com.apple.screencapture location /Volumes/Terra/Screenshots
+
+
+###############  Manual ###############
+
+# install bashmarks
+git clone git://github.com/huyng/bashmarks.git
+make install
+#source ~/.local/bin/bashmarks.sh from within your ~.bash_profile or ~/.bashrc file

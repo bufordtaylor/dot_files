@@ -1,0 +1,24 @@
+I often changed machines, and I've gotten used to doing things a certain way.  So I wrote a 
+few scripts that will help me get started with a new machine faster.
+
+Of note, there are two install scripts you should take a quick look at:
+
+./install.sh
+
+Running this will get you:
+
+1. A great color scheme
+2. bashmarks (The ability to save pwd with s (bookmark) and go back to it again with g (bookmark)
+3. git information on your prompt
+4. collection of useful aliases
+
+./installvim.sh
+
+running this will get you:
+
+1. vim with the ruby flag and pathogen
+2. command-t
+3. NERDTreeCommenter
+4. NERDTree
+5. tabbar
+6. Other awesome bundles
